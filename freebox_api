@@ -1,5 +1,5 @@
 #reboot script
 # get FBXSID
-curl -v http://mafreebox.fr/login.php -d "login=freebox&passwd=fboscdc2l5-2" 2>&1 | grep FBXSID | cut -c 23- | sed 's/".*//g' > tmp/FBXSID
+curl -v http://mafreebox.fr/login.php -d "login=freebox&passwd=password" 2>&1 | grep FBXSID | cut -c 23- | sed 's/".*//g' > tmp/FBXSID
 sid=`cat tmp/FBXSID`
 curl http://mafreebox.free.fr/system.cgi --header "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"system.reboot","params":[true]}' --cookie FBXSID=$sid
